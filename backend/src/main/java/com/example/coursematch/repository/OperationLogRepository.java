@@ -21,8 +21,8 @@ public interface OperationLogRepository extends JpaRepository<OperationLog, Long
     Page<OperationLog> findByOperator(String operator, Pageable pageable);
 
     @Query("SELECT o FROM OperationLog o WHERE o.operationTime BETWEEN :startTime AND :endTime")
-    Page<OperationLog> findByTimeRange(@Param("startTime") LocalDateTime startTime, 
-                                        @Param("endTime") LocalDateTime endTime, 
+    Page<OperationLog> findByTimeRange(@Param("startTime") LocalDateTime startTime,
+                                        @Param("endTime") LocalDateTime endTime,
                                         Pageable pageable);
 
     @Query("SELECT o FROM OperationLog o WHERE o.targetType = :targetType AND o.targetId = :targetId")
